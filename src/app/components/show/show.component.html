@@ -1,0 +1,31 @@
+<br>
+<h2 style="text-align:center">Listado de contactos</h2>
+
+<div class="d-grip gap-2 mt-4">
+<a routerLink="/create" class="btn btn-primary" type="button">Crear</a>&nbsp;
+<a id="myLink" href="#" class="btn btn-danger">Deslogear</a>
+</div>
+
+<table class="table table-hover table-striped">
+  <thead class="bg dark text-black">
+    <tr>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Correo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let post of Posts">
+      <td>{{ post.Nombres }}</td>
+      <td>{{ post.Apellidos }}</td>
+      <td>{{ post.Correo }}</td>
+      <td>
+        <button routerLink="/edit/{{post.id}}" class="btn btn-outline-secondary">Editar <i class="fa-solid fa-pen-to-square"></i></button>&nbsp;
+        <button (click)="deleteRow(post)" class="btn btn-outline-danger">Borrar <i class="fa-solid fa-trash-can"></i></button>&nbsp;
+        <button routerLink="/mensaje" class="btn btn-outline-success">Mensaje <i class="fa-solid fa-envelope"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
